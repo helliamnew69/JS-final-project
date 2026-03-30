@@ -1,0 +1,212 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f9ff;
+  color: #0f172a;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* -- Sidebar -- */
+.sidebar {
+  width: 220px;
+  background: #fff;
+  border-right: 1px solid #e2e8f0;
+  padding: 24px 0;
+  flex-shrink: 0;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 12px;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.sidebar a:hover { background: #f1f5f9; color: #0f172a; }
+.sidebar a.active { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+
+.sidebar a svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.sidebar .sub-item {
+  padding-left: 40px;
+  font-size: 13px;
+}
+
+/* -- Main content -- */
+.main {
+  flex: 1;
+  padding: 32px;
+  overflow: auto;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.btn-primary {
+  background: #1d4ed8;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary:hover { background: #1e40af; }
+
+/* -- Toolbar (search + filter) -- */
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 14px;
+  flex: 1;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #0f172a;
+  width: 100%;
+  background: transparent;
+}
+
+.search-box input::placeholder { color: #94a3b8; }
+
+.filter-select {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #0f172a;
+  cursor: pointer;
+  outline: none;
+}
+
+/* -- Table -- */
+.table-wrapper {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead th {
+  background: #f8fafc;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+tbody tr { border-bottom: 1px solid #f1f5f9; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #f8fafc; }
+
+tbody td { padding: 13px 16px; color: #1e293b; }
+
+/* -- Status badges -- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.badge.active   { background: #dcfce7; color: #15803d; }
+.badge.active .badge-dot { background: #22c55e; }
+
+.badge.inactive { background: #fee2e2; color: #b91c1c; }
+.badge.inactive .badge-dot { background: #ef4444; }
+
+/* -- Action buttons -- */
+.actions { display: flex; gap: 8px; }
+
+.btn-icon {
+  background: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #475569;
+}
+
+.btn-icon:hover { background: #f1f5f9; }
+.btn-icon.delete:hover { background: #fee2e2; color: #b91c1c; border-color: #fca5a5; }
+
+/* -- Pagination -- */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #475569;
+}
+
+.pagination button:hover { background: #f1f5f9; }
+.pagination button.current { background: #1d4ed8; color: #fff; border-color: #1d4ed8; font-weight: 700; }
+.pagination button.dots { border: none; background: none; cursor: default; }
