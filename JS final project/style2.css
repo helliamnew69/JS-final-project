@@ -1,0 +1,213 @@
+﻿
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f8fafc;
+  font-family: var(--default-font-family);
+  color: #0f1728;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  font-family: "Poppins", sans-serif;
+}
+
+.MNHNhNgKMobile {
+  width: min(100%, 450px);
+  padding: 64px 16px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.Container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.Content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+}
+
+.HeadingAndSupportingText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  font-family: "Poppins", sans-serif;
+}
+
+.Heading {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 44px;
+  color: #0f1728;
+  text-align: center;
+  letter-spacing: -2px;
+}
+
+.SupportingText {
+  margin: 0;
+  font-size: 18px;
+  line-height: 28px;
+  color: #667084;
+  text-align: center;
+}
+
+.Form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.FormFields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.InputFieldBase {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.Label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #344053;
+}
+
+.Input {
+  width: 100%;
+  height: 48px;
+  padding: 12px 16px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 16px;
+  color: #0f1728;
+}
+
+.Input:focus {
+  outline: none;
+  border-color: #007aff;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+.Checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.Extra {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CheckboxBase {
+  width: 20px;
+  height: 20px;
+}
+
+.CheckboxBase[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  background: #ffffff;
+  cursor: pointer;
+  position: relative;
+}
+
+.CheckboxBase[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid #007aff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.Text {
+  font-size: 14px;
+  color: #344053;
+}
+
+.link {
+  color: #007aff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ButtonBase {
+  width: 100%;
+  padding: 12px 20px;
+  background: #007aff;
+  color: white;
+  border: 1px solid #007aff;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ButtonBase:hover {
+  background: #005ce6;
+  border-color: #005ce6;
+}
+
+@media (max-width: 768px) {
+  .MNHNhNgKMobile {
+    width: 100%;
+    padding: 40px 12px;
+  }
+  .Heading { font-size: 24px; }
+  .SupportingText { font-size: 16px; }
+  .Input { height: 44px; font-size: 14px; }
+  .ButtonBase { font-size: 15px; }
+}
+
+@media (max-width: 480px) {
+  .MNHNhNgKMobile { padding: 24px 12px; }
+  .Heading { font-size: 20px; }
+  .SupportingText { font-size: 14px; }
+}
+  .error-message {
+    color: #d32f2f;
+    font-size: 0.85rem;
+    margin-top: 4px;
+    display: none;
+  }
+  .Input.input-error {
+    border-color: #d32f2f !important;
+    box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2);
+  }
+  .success-message {
+    color: #388e3c;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 16px;
+    display: none;
+  }

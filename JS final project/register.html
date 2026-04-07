@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang chủ Ecommerce</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .error-message {
+      color: #d32f2f;
+      font-size: 0.9rem;
+      margin-top: 4px;
+      display: none;
+    }
+    .input-error {
+      border-color: #d32f2f !important;
+      box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2);
+    }
+    .checkbox-wrap + .error-message,
+    .checkbox-wrap .error-message {
+      margin-top: 6px;
+      display: none;
+      color: #d32f2f;
+      font-size: 0.9rem;
+    }
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+    .toast {
+      min-width: 260px;
+      max-width: 360px;
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      padding: 14px 16px;
+      border-radius: 12px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: auto;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .toast-success {
+      background: #2e7d32;
+    }
+    .toast-error {
+      background: #c62828;
+    }
+  </style>
+</head>
+<body>
+  
+    <div class="form-card">
+      <div class="form-heading">
+        <h1>Đăng ký tài khoản</h1>
+        <p>Đăng ký tài khoản để sử dụng dịch vụ</p>
+      </div>
+
+      <form class="register-form" action="" novalidate>
+        <div class="row two-cols">
+          <div class="field">
+            <label for="fullname">Họ và tên đệm</label>
+            <input id="fullname" name="fullname" type="text" placeholder="Nguyễn Văn" required />
+            <p class="error-message" id="fullname-error"></p>
+          </div>
+          <div class="field">
+            <label for="firstname">Tên</label>
+            <input id="firstname" name="firstname" type="text" placeholder="An" required />
+            <p class="error-message" id="firstname-error"></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" required />
+            <p class="error-message" id="email-error"></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="password">Mật khẩu</label>
+            <input id="password" name="password" type="password" placeholder="Tối thiểu 8 ký tự" required />
+            <p class="error-message" id="password-error"></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="confirm-password">Xác nhận mật khẩu</label>
+            <input id="confirm-password" name="confirm_password" type="password" placeholder="Nhập lại mật khẩu" required />
+            <p class="error-message" id="confirm-password-error"></p>
+          </div>
+        </div>
+
+        <div class="row checkbox-row">
+          <label class="checkbox-wrap">
+            <input type="checkbox" id="accept" required />
+            <span>Bạn đồng ý với <a href="#">chính sách và điều khoản</a></span>
+          </label>
+          <p class="error-message" id="accept-error"></p>
+        </div>
+
+        <div class="row">
+          <button type="submit">Đăng ký</button>
+        </div>
+      </form>
+
+      <p class="switch-link">Bạn đã có tài khoản? <a href="./index2.html">Đăng nhập</a></p>
+    </div>
+  </div>
+  <div id="toast-container" class="toast-container"></div>
+  <script src="register.js"></script>
+</body>
+</html>

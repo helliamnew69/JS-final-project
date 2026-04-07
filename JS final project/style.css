@@ -1,0 +1,171 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.page-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.form-card {
+  width: min(100%, 420px);
+  max-width: 420px;
+  background: #ffffff;
+  border: none;
+  border-radius: 0;
+  padding: 24px 22px 22px;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.form-heading {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.form-heading h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.form-heading p {
+  font-size: 15px;
+  color: #52627e;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.row.two-cols {
+  width: 100%;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.row.two-cols .field {
+  width: calc((100% - 12px) / 2);
+  min-width: 156px;
+  max-width: 164px;
+}
+
+.row:not(.two-cols) .field {
+  width: 100%;
+  max-width: 340px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2f435d;
+}
+
+.field input {
+  height: 36px;
+  padding: 12px 14px;
+  border: 1px solid #d7e1ee;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1a2a46;
+}
+
+.field input:focus {
+  border-color: #8fb6ff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  outline: none;
+}
+
+.checkbox-row {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.checkbox-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #344054;
+  width: 100%;
+  max-width: 340px;
+}
+.checkbox-wrap input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.checkbox-wrap a {
+  color: #0066ff;
+  text-decoration: none;
+}
+
+.checkbox-wrap a:hover {
+  text-decoration: underline;
+}
+
+button[type="submit"] {
+  width: 100%;
+  max-width: 340px;
+  height: 38px;
+  border: none;
+  border-radius: 8px;
+  background: #006dff;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background: #0050cc;
+}
+
+.switch-link {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #334155;
+}
+
+.switch-link a {
+  color: #0066ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.switch-link a:hover {
+  text-decoration: underline;
+}

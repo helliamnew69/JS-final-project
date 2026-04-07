@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecommerce - Danh muc</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="danh-muc.css" />  <link rel="stylesheet" href="modal.css" /></head>
+<body>
+  <div class="app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-03-31/kxUubKqLDS.png" alt="logo" />
+        <span class="sidebar-brand-name">Ecommerce</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item">
+          <img src="https://www.figma.com/api/mcp/asset/ed16c7be-6f2b-4731-8190-75bf69048b69" alt="home icon" />
+          Thống kê
+        </a>
+        <a href="#" class="nav-item active">
+          <img src="https://www.figma.com/api/mcp/asset/33c26822-0d95-4e91-ba58-57616d78a0a0" alt="category icon" />
+          Danh mục
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon-box">
+            <img src="https://www.figma.com/api/mcp/asset/b78efe4b-3ab6-4335-888e-77f9db18fb6e" alt="products icon" />
+          </span>
+          Sản phẩm
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <!-- Header -->
+      <header class="header">
+        <div class="header-actions">
+          <button class="header-icon-btn" aria-label="Notifications">
+            <img src="https://www.figma.com/api/mcp/asset/3e4c2e69-9fb9-44cc-bf51-d4b3c5b2f36b" alt="bell" />
+          </button>
+          <button class="header-avatar" id="user-avatar-btn" title="Click to logout" style="background: none; border: none; cursor: pointer; padding: 0;">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23e6e6e6' stroke='%23b3b3b3' stroke-width='4'/%3E%3Ccircle cx='50' cy='35' r='18' fill='%23ffffff'/%3E%3Cpath d='M30 72c0-14 11-26 25-26s25 12 25 26' fill='none' stroke='%23ffffff' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E" alt="avatar" />
+          </button>
+        </div>
+      </header>
+
+      <!-- Page Body -->
+      <main class="page-body">
+
+        <!-- Page Header -->
+        <div class="page-header">
+          <h1 class="page-title">Danh mục</h1>
+          <button class="btn-primary" id="btnAddCategory">Thêm mới danh mục</button>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-row">
+          <div class="filter-dropdown">
+            <select id="statusFilter" aria-label="Lọc trạng thái">
+              <option value="all">Tất cả trạng thái</option>
+              <option value="active" selected>Đang hoạt động</option>
+              <option value="inactive">Ngừng hoạt động</option>
+            </select>
+          </div>
+          <div class="filter-dropdown">
+            <select id="sortSelect" aria-label="Sắp xếp danh mục">
+              <option value="createdAt">Sắp xếp theo thời gian tạo</option>
+              <option value="name">Sắp xếp theo tên</option>
+              <option value="code">Sắp xếp theo mã</option>
+            </select>
+          </div>
+          <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm danh mục theo tên" />
+            <button class="search-btn" type="button" aria-label="Tìm kiếm">
+              <img class="search-icon" src="Shape.png" alt="search" />
+            </button>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <div class="th-inner">
+                    <button class="sort-btn" type="button" data-sort="code" data-order="desc">
+                      <span>Mã danh mục</span>
+                      <img class="sort-icon" src="arrow-down.svg" alt="sort" />
+                    </button>
+                  </div>
+                </th>
+                <th>
+                  <div class="th-inner">
+                    <button class="sort-btn" type="button" data-sort="name" data-order="desc">
+                      <span>Tên danh mục</span>
+                      <img class="sort-icon" src="arrow-down.svg" alt="sort" />
+                    </button>
+                  </div>
+                </th>
+                <th>Trạng thái</th>
+                <th>Chức năng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>DM001</td>
+                <td>Quần áo</td>
+                <td>
+                  <span class="badge badge-active">
+                    <span class="badge-dot"></span>
+                    Đang hoạt động
+                  </span>
+                </td>
+                <td class="action-cell">
+                  <button class="btn-icon" aria-label="Xóa">
+                    <img src="https://www.figma.com/api/mcp/asset/aa9471dc-404a-4367-abde-ba0282773476" alt="trash" />
+                  </button>
+                  <button class="btn-icon" aria-label="Sua">
+                    <img src="https://www.figma.com/api/mcp/asset/b173f6bb-c859-437d-9139-32de314f7ad3" alt="edit" />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>DM002</td>
+                <td>Kính mắt</td>
+                <td>
+                  <span class="badge badge-inactive">
+                    <span class="badge-dot"></span>
+                    Ngừng hoạt động
+                  </span>
+                </td>
+                <td class="action-cell">
+                  <button class="btn-icon" aria-label="Xóa">
+                    <img src="https://www.figma.com/api/mcp/asset/aa9471dc-404a-4367-abde-ba0282773476" alt="trash" />
+                  </button>
+                  <button class="btn-icon" aria-label="Sua">
+                    <img src="https://www.figma.com/api/mcp/asset/b173f6bb-c859-437d-9139-32de314f7ad3" alt="edit" />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>DM003</td>
+                <td>Giày dép</td>
+                <td>
+                  <span class="badge badge-active">
+                    <span class="badge-dot"></span>
+                    Đang hoạt động
+                  </span>
+                </td>
+                <td class="action-cell">
+                  <button class="btn-icon" aria-label="Xóa">
+                    <img src="https://www.figma.com/api/mcp/asset/aa9471dc-404a-4367-abde-ba0282773476" alt="trash" />
+                  </button>
+                  <button class="btn-icon" aria-label="Sua">
+                    <img src="https://www.figma.com/api/mcp/asset/b173f6bb-c859-437d-9139-32de314f7ad3" alt="edit" />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>DM004</td>
+                <td>Thời trang nam</td>
+                <td>
+                  <span class="badge badge-inactive">
+                    <span class="badge-dot"></span>
+                    Ngừng hoạt động
+                  </span>
+                </td>
+                <td class="action-cell">
+                  <button class="btn-icon" aria-label="Xóa">
+                    <img src="https://www.figma.com/api/mcp/asset/aa9471dc-404a-4367-abde-ba0282773476" alt="trash" />
+                  </button>
+                  <button class="btn-icon" aria-label="Sua">
+                    <img src="https://www.figma.com/api/mcp/asset/b173f6bb-c859-437d-9139-32de314f7ad3" alt="edit" />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>DM005</td>
+                <td>Thời trang nữ</td>
+                <td>
+                  <span class="badge badge-inactive">
+                    <span class="badge-dot"></span>
+                    Ngừng hoạt động
+                  </span>
+                </td>
+                <td class="action-cell">
+                  <button class="btn-icon" aria-label="Xóa">
+                    <img src="https://www.figma.com/api/mcp/asset/aa9471dc-404a-4367-abde-ba0282773476" alt="trash" />
+                  </button>
+                  <button class="btn-icon" aria-label="Sua">
+                    <img src="https://www.figma.com/api/mcp/asset/b173f6bb-c859-437d-9139-32de314f7ad3" alt="edit" />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>DM006</td>
+                <td>Hoa quả</td>
+                <td>
+                  <span class="badge badge-inactive">
+                    <span class="badge-dot"></span>
+                    Ngừng hoạt động
+                  </span>
+                </td>
+                <td class="action-cell">
+                  <button class="btn-icon" aria-label="Xóa">
+                    <img src="https://www.figma.com/api/mcp/asset/aa9471dc-404a-4367-abde-ba0282773476" alt="trash" />
+                  </button>
+                  <button class="btn-icon" aria-label="Sua">
+                    <img src="https://www.figma.com/api/mcp/asset/b173f6bb-c859-437d-9139-32de314f7ad3" alt="edit" />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>DM007</td>
+                <td>Rau</td>
+                <td>
+                  <span class="badge badge-active">
+                    <span class="badge-dot"></span>
+                    Đang hoạt động
+                  </span>
+                </td>
+                <td class="action-cell">
+                  <button class="btn-icon" aria-label="Xóa">
+                    <img src="https://www.figma.com/api/mcp/asset/aa9471dc-404a-4367-abde-ba0282773476" alt="trash" />
+                  </button>
+                  <button class="btn-icon" aria-label="Sua">
+                    <img src="https://www.figma.com/api/mcp/asset/b173f6bb-c859-437d-9139-32de314f7ad3" alt="edit" />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>MD008</td>
+                <td>Dien thoai</td>
+                <td>
+                  <span class="badge badge-inactive">
+                    <span class="badge-dot"></span>
+                    Ngừng hoạt động
+                  </span>
+                </td>
+                <td class="action-cell">
+                  <button class="btn-icon" aria-label="Xóa">
+                    <img src="https://www.figma.com/api/mcp/asset/aa9471dc-404a-4367-abde-ba0282773476" alt="trash" />
+                  </button>
+                  <button class="btn-icon" aria-label="Sua">
+                    <img src="https://www.figma.com/api/mcp/asset/b173f6bb-c859-437d-9139-32de314f7ad3" alt="edit" />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <button class="page-btn nav-arrow" aria-label="Previous">&larr;</button>
+          <button class="page-btn">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn active">3</button>
+          <button class="page-btn">4</button>
+          <button class="page-btn">5</button>
+          <button class="page-btn">6</button>
+          <button class="page-btn">7</button>
+          <button class="page-btn">...</button>
+          <button class="page-btn">20</button>
+          <button class="page-btn nav-arrow" aria-label="Next">&rarr;</button>
+        </div>
+
+      </main>
+    </div><!-- /.main-content -->
+
+    <!-- Modal Thêm danh mục -->
+    <div class="modal-overlay" id="addCategoryModal" style="display:none;">
+      <div class="modal modal-content">
+        <div class="modal-header">
+          <h2>Thêm mới danh mục</h2>
+          <span class="close" id="closeAddModal">&times;</span>
+        </div>
+        <div class="modal-body">
+          <label>Mã danh mục <span class="required">*</span></label>
+          <input type="text" id="newCategoryCode" />
+
+          <label>Tên danh mục <span class="required">*</span></label>
+          <input type="text" id="newCategoryName" />
+
+          <label>Trạng thái</label>
+          <div class="radio-group" style="margin-top:8px;">
+            <label><input type="radio" name="newStatus" value="active" checked /> Đang hoạt động</label>
+            <label><input type="radio" name="newStatus" value="inactive" style="margin-left: 8px;" /> Ngừng hoạt động</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn cancel" id="cancelAdd">Hủy</button>
+          <button class="btn submit" id="submitAdd">Thêm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Cập nhật danh mục -->
+    <div class="modal-overlay" id="editCategoryModal" style="display:none;">
+      <div class="modal modal-content">
+        <div class="modal-header">
+          <h2>Cập nhật danh mục</h2>
+          <span class="close" id="closeEditModal">&times;</span>
+        </div>
+        <div class="modal-body">
+          <label>Mã danh mục <span class="required">*</span></label>
+          <input type="text" id="editCategoryCode" readonly />
+
+          <label>Tên danh mục <span class="required">*</span></label>
+          <input type="text" id="editCategoryName" />
+
+          <label>Trạng thái</label>
+          <div class="radio-group" style="margin-top:8px;">
+            <label><input type="radio" name="editStatus" value="active" /> Đang hoạt động</label>
+            <label><input type="radio" name="editStatus" value="inactive" style="margin-left: 8px;" /> Ngừng hoạt động</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn cancel" id="cancelEdit">Hủy</button>
+          <button class="btn submit" id="submitEdit">Lưu</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.app-layout -->
+
+  <script src="auth.js"></script>
+  <script src="danh-muc.js"></script>
+</body>
+</html>
+

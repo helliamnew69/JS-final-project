@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TrangCh </title>
+	<link rel="stylesheet" href="home.css">
+	<style>
+		.top-header {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			gap: 10px;
+			padding: 18px 24px;
+			background: rgba(255, 255, 255, 0.95);
+			position: sticky;
+			top: 0;
+			z-index: 50;
+			box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+		}
+		.header-action {
+			border: 1px solid #ccc;
+			background: #fff;
+			color: #111;
+			padding: 10px 16px;
+			border-radius: 999px;
+			cursor: pointer;
+			font-weight: 600;
+		}
+		.header-action:hover {
+			background: #f4f4f4;
+		}
+		.user-menu {
+			position: relative;
+		}
+		.user-dropdown {
+			display: none;
+			position: absolute;
+			top: 100%;
+			right: 0;
+			margin-top: 8px;
+			background: #fff;
+			border: 1px solid rgba(0,0,0,0.12);
+			border-radius: 12px;
+			box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+			min-width: 200px;
+			overflow: hidden;
+			z-index: 100;
+		}
+		.user-dropdown.show {
+			display: block;
+		}
+		.dropdown-item {
+			display: block;
+			width: 100%;
+			text-align: left;
+			padding: 12px 16px;
+			border: none;
+			background: transparent;
+			color: #111;
+			cursor: pointer;
+			font-size: 0.95rem;
+		}
+		.dropdown-item:hover {
+			background: #f7f7f7;
+		}
+		.toast-container {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 9999;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			pointer-events: none;
+		}
+		.toast {
+			min-width: 240px;
+			max-width: 340px;
+			background: rgba(0, 0, 0, 0.85);
+			color: #fff;
+			padding: 14px 16px;
+			border-radius: 14px;
+			box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+			opacity: 0;
+			transform: translateY(-10px);
+			transition: opacity 0.2s ease, transform 0.2s ease;
+			pointer-events: auto;
+		}
+		.toast.show {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		.toast-success {
+			background: #2e7d32;
+		}
+		.toast-error {
+			background: #c62828;
+		}
+		.clickable {
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="contain">
+	
+			<div class="column2">
+				<div class="row-view">
+					<img
+						src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/wf50rkas_expires_30_days.png" 
+						class="image"
+					/>
+					<div class="view">
+						<img
+							src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/gvbwnn5u_expires_30_days.png" 
+							class="image2"
+						/>
+					</div>
+					<div class="box">
+					</div>
+					<img
+						src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/nkkxmicv_expires_30_days.png" 
+						class="image3 clickable"
+						onclick="alert('Pressed!')"
+					/>
+					<img
+						src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/9eecc0p9_expires_30_days.png" 
+						class="image3 clickable"
+						onclick="alert('Pressed!')"
+					/>
+					<div class="user-menu" id="logoutMenu">
+						<img
+							src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/v2rryjq6_expires_30_days.png" 
+							class="image4 clickable"
+							id="logoutImage"
+						/>
+						<div class="user-dropdown" id="logoutDropdown">
+							<button class="dropdown-item" id="accountInfoImageBtn">Thông tin tài khoản</button>
+							<button class="dropdown-item" id="logoutImageBtn">Đăng xuất</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="row-view2">
+					<img
+						src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/d5bpvuz0_expires_30_days.png" 
+						class="image6"
+					/>
+					<span class="text" >
+						Điện thoại
+					</span>
+					<img
+						src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/z4yew9b7_expires_30_days.png" 
+						class="image6"
+					/>
+					<span class="text" >
+						Laptop
+					</span>
+					<img
+						src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/dmo2mg8r_expires_30_days.png" 
+						class="image6"
+					/>
+					<span class="text" >
+						Đồng hồ thông minh
+					</span>
+					<img
+						src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/ldp831fe_expires_30_days.png" 
+						class="image6"
+					/>
+					<span class="text2" >
+						Cameras
+					</span>
+					<img
+						src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/paxcpolr_expires_30_days.png" 
+						class="image6"
+					/>
+					<span class="text2" >
+						Tai nghe
+					</span>
+					<img
+						src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/g6kkznii_expires_30_days.png" 
+						class="image6"
+					/>
+					<span class="text3" >
+						Gaming
+					</span>
+				</div>
+			</div>
+			<div class="column3">
+				<div class="view2">
+					<img
+						src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/utzjqm3d_expires_30_days.png" 
+						class="image7"
+					/>
+				</div>
+				<div class="column4">
+					<div class="column5">
+						<span class="text4" >
+							Đột phá công nghệ
+						</span>
+						<span class="text5" >
+							IPhone 14 Pro
+						</span>
+					</div>
+					<span class="text6" >
+						Được tạo ra để thay đổi mọi thứ để tốt hơn. Cho tất cả mọi người
+					</span>
+					<button class="button"
+						onclick="alert('Pressed!')">
+						<span class="text3" >
+							Mua ngay
+						</span>
+					</button>
+				</div>
+				
+			</div>
+			<section class="category-section">
+				<div class="category-header">
+					<h2>Danh mục sản phẩm</h2>
+					<div class="category-arrows">
+					<button class="arrow-btn" id="prevBtn">❮</button>
+					<button class="arrow-btn" id="nextBtn">❯</button>
+					</div>
+				</div>
+
+				<div class="category-wrapper" id="categoryWrapper">
+					<button class="category-item">Điện thoại</button>
+					<button class="category-item">Đồng hồ</button>
+					<button class="category-item">Cameras</button>
+					<button class="category-item">Tai nghe</button>
+					<button class="category-item">Máy tính</button>
+					<button class="category-item">Gaming</button>
+				</div>
+			</section>
+
+			<div class="column6">
+				<div class="column7">
+					<div class="row-view3">
+						<div class="column8">
+							<span class="text7" >
+								New Arrival
+							</span>
+							<img
+								src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/edpqte7s_expires_30_days.png" 
+								class="image8"
+							/>
+						</div>
+						<span class="text8" >
+							Bestseller
+						</span>
+						<span class="text9" >
+							Featured Products
+						</span>
+					</div>
+					<div class="row-view4">
+						<div class="row-view5">
+							<div class="column9">
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/rm2vnikh_expires_30_days.png" 
+									class="image9"
+								/>
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/jgpmey5l_expires_30_days.png" 
+									class="image10"
+								/>
+								<div class="column4">
+									<div class="column10">
+										<span class="text10" >
+											Apple iPhone 14 Pro Max 128GB Deep Purple
+										</span>
+										<span class="text11" >
+											$900
+										</span>
+									</div>
+									<button class="button2"
+										onclick="alert('Pressed!')">
+										<span class="text12" >
+											Mua ngay
+										</span>
+									</button>
+								</div>
+							</div>
+							<div class="column9">
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/vdfuegmd_expires_30_days.png" 
+									class="image9"
+								/>
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/11qj1cw8_expires_30_days.png" 
+									class="image10"
+								/>
+								<div class="column4">
+									<div class="column11">
+										<span class="text13" >
+											Blackmagic Pocket Cinema Camera 6k
+										</span>
+										<span class="text11" >
+											$2535
+										</span>
+									</div>
+									<button class="button2"
+										onclick="alert('Pressed!')">
+										<span class="text12" >
+											Mua ngay
+										</span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="row-view5">
+							<div class="column9">
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/7un7z1wu_expires_30_days.png" 
+									class="image9"
+								/>
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/0cgjxhgy_expires_30_days.png" 
+									class="image10"
+								/>
+								<div class="column4">
+									<div class="column12">
+										<span class="text14" >
+											Apple Watch Series 9 GPS 41mm Starlight Aluminium
+										</span>
+										<span class="text11" >
+											$399
+										</span>
+									</div>
+									<button class="button2"
+										onclick="alert('Pressed!')">
+										<span class="text12" >
+											Mua ngay
+										</span>
+									</button>
+								</div>
+							</div>
+							<div class="column9">
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/748ymn42_expires_30_days.png" 
+									class="image9"
+								/>
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/gtendp76_expires_30_days.png" 
+									class="image10"
+								/>
+								<div class="column4">
+									<div class="column13">
+										<span class="text15" >
+											AirPods Max Silver
+										</span>
+										<span class="text11" >
+											$549
+										</span>
+									</div>
+									<button class="button2"
+										onclick="alert('Pressed!')">
+										<span class="text12" >
+											Mua ngay
+										</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row-view6">
+						<div class="column14">
+							<img
+								src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/jrxfpcm4_expires_30_days.png" 
+								class="image9"
+							/>
+							<img
+								src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/cyyaadnd_expires_30_days.png" 
+								class="image10"
+							/>
+							<div class="column15">
+								<div class="column16">
+									<span class="text16" >
+										Samsung Galaxy Watch6 Classic 47mm Black
+									</span>
+									<span class="text11" >
+										$369
+									</span>
+								</div>
+								<button class="button3"
+									onclick="alert('Pressed!')">
+									<span class="text12" >
+										Mua ngay
+									</span>
+								</button>
+							</div>
+						</div>
+						<div class="column14">
+							<img
+								src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/oxo8wdcy_expires_30_days.png" 
+								class="image9"
+							/>
+							<img
+								src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/njpl9uye_expires_30_days.png" 
+								class="image10"
+							/>
+							<div class="column15">
+								<div class="column16">
+									<span class="text17" >
+										Galaxy Z Fold5 Unlocked | 256GB | Phantom Black
+									</span>
+									<span class="text11" >
+										$1799
+									</span>
+								</div>
+								<button class="button3"
+									onclick="alert('Pressed!')">
+									<span class="text12" >
+										Mua ngay
+									</span>
+								</button>
+							</div>
+						</div>
+						<div class="column14">
+							<img
+								src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/3e5m03c1_expires_30_days.png" 
+								class="image9"
+							/>
+							<img
+								src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/ezw10638_expires_30_days.png" 
+								class="image10"
+							/>
+							<div class="column15">
+								<div class="column16">
+									<span class="text18" >
+										Galaxy Buds FE<br/>Graphite
+									</span>
+									<span class="text11" >
+										$99.99
+									</span>
+								</div>
+								<button class="button3"
+									onclick="alert('Pressed!')">
+									<span class="text12" >
+										Mua ngay
+									</span>
+								</button>
+							</div>
+						</div>
+						<div class="column14">
+							<img
+								src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/yw8l8w6r_expires_30_days.png" 
+								class="image9"
+							/>
+							<img
+								src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/uiy27z5a_expires_30_days.png" 
+								class="image10"
+							/>
+							<div class="column15">
+								<div class="column16">
+									<span class="text19" >
+										Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021
+									</span>
+									<span class="text11" >
+										$398
+									</span>
+								</div>
+								<button class="button3"
+									onclick="alert('Pressed!')">
+									<span class="text12" >
+										Mua ngay
+									</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="absolute-column">
+					<span class="text20" >
+						Sản phẩm giảm giá
+					</span>
+					<div class="row-view7">
+						<div class="row-view5">
+							<div class="column9">
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/70aqaji8_expires_30_days.png" 
+									class="image9"
+								/>
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/8zhc62rq_expires_30_days.png" 
+									class="image10"
+								/>
+								<div class="column4">
+									<div class="column17">
+										<span class="text21" >
+											Apple iPhone 14 Pro 512GB Gold (MQ233)
+										</span>
+										<span class="text11" >
+											$1437
+										</span>
+									</div>
+									<button class="button2"
+										onclick="alert('Pressed!')">
+										<span class="text12" >
+											Mua ngay
+										</span>
+									</button>
+								</div>
+							</div>
+							<div class="column9">
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/12ozrvkp_expires_30_days.png" 
+									class="image9"
+								/>
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/agkdov2s_expires_30_days.png" 
+									class="image10"
+								/>
+								<div class="column4">
+									<div class="column13">
+										<span class="text15" >
+											AirPods Max Silver
+										</span>
+										<span class="text11" >
+											$549
+										</span>
+									</div>
+									<button class="button2"
+										onclick="alert('Pressed!')">
+										<span class="text12" >
+											Mua ngay
+										</span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="row-view5">
+							<div class="column9">
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/2pn0ld8k_expires_30_days.png" 
+									class="image9"
+								/>
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/tyrmqoih_expires_30_days.png" 
+									class="image10"
+								/>
+								<div class="column4">
+									<div class="column12">
+										<span class="text14" >
+											Apple Watch Series 9 GPS 41mm Starlight Aluminium
+										</span>
+										<span class="text11" >
+											$399
+										</span>
+									</div>
+									<button class="button2"
+										onclick="alert('Pressed!')">
+										<span class="text12" >
+											Mua ngay
+										</span>
+									</button>
+								</div>
+							</div>
+							<div class="column9">
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/qdjdjkcg_expires_30_days.png" 
+									class="image9"
+								/>
+								<img
+									src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/ev55qm20_expires_30_days.png" 
+									class="image10"
+								/>
+								<div class="column4">
+									<div class="column18">
+										<span class="text22" >
+											Apple iPhone 14 Pro 1TB Gold (MQ2V3)
+										</span>
+										<span class="text11" >
+											$1499
+										</span>
+									</div>
+									<button class="button2"
+										onclick="alert('Pressed!')">
+										<span class="text12" >
+											Mua ngay
+										</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="column19">
+				<div class="row-view8">
+					<img
+						src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/s2hitmgg_expires_30_days.png" 
+						class="image11"
+					/>
+					<div class="column20">
+						<span class="text23" >
+							Nhanh tay săn đón các sản phẩm chất lượng
+						</span>
+						<button class="button4"
+							onclick="alert('Pressed!')">
+							<span class="text3" >
+								Mua ngay
+							</span>
+						</button>
+					</div>
+					<div class="box">
+					</div>
+					<div class="column21">
+						<img
+							src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/3me08djj_expires_30_days.png" 
+							class="image12"
+						/>
+						<img
+							src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/wlshkye3_expires_30_days.png" 
+							class="absolute-image"
+						/>
+					</div>
+					<img
+						src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/9szb8t5n_expires_30_days.png" 
+						class="absolute-image2"
+					/>
+					<img
+						src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/3kind7sw_expires_30_days.png" 
+						class="absolute-image3"
+					/>
+					<span class="absolute-text" >
+						Ưu đãi mùa hè
+					</span>
+				</div>
+				<div class="column22">
+					<div class="row-view9">
+						<div class="column23">
+							<img
+								src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/9otq9rsz_expires_30_days.png" 
+								class="image13"
+							/>
+							<span class="text24" >
+								Chúng tôi cung cấp các sản phẩm công nghệ, giúp khách hàng thỏa sức trải nghiệm các dịch vụ, tiện ích nhanh chóng và hiệu quả.
+							</span>
+						</div>
+						<div class="row-view10">
+							<div class="column24">
+								<span class="text3" >
+									Dịch vụ
+								</span>
+								<span class="text25" >
+									Chương trình khuyến mãiGift cardsTín dụng và thanh toánDịch vụ hợp đồngVí tiền điện tửThanh toán
+								</span>
+							</div>
+							<div class="column25">
+								<span class="text3" >
+									Hỗ trợ cho người mua
+								</span>
+								<span class="text26" >
+									Tìm kiếm đơn đặt hàngĐiều khoản giao hàngTrao đổi và trả hàngChinh sách bảo hànhCâu hỏi thường gặpChính sách và điều khoản
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="row-view11">
+						<img
+							src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/ixzqv8j1_expires_30_days.png" 
+							class="image14"
+						/>
+						<img
+							src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/jw5hq6wx_expires_30_days.png" 
+							class="image14"
+						/>
+						<img
+							src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/3fie8ct2_expires_30_days.png" 
+							class="image14"
+						/>
+						<img
+							src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/H8jWoZZ7GZ/ekzvn93b_expires_30_days.png" 
+							class="image14"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="toast-container" class="toast-container"></div>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const userButton = document.getElementById('userButton');
+			const userDropdown = document.getElementById('userDropdown');
+			const accountInfoBtn = document.getElementById('accountInfoBtn');
+			const logoutBtn = document.getElementById('logoutBtn');
+			const headerBtn1 = document.getElementById('headerBtn1');
+			const headerBtn2 = document.getElementById('headerBtn2');
+			
+			// Logout Image Menu
+			const logoutImage = document.getElementById('logoutImage');
+			const logoutDropdown = document.getElementById('logoutDropdown');
+			const logoutMenu = document.getElementById('logoutMenu');
+			const accountInfoImageBtn = document.getElementById('accountInfoImageBtn');
+			const logoutImageBtn = document.getElementById('logoutImageBtn');
+
+			function showToast(message, type = 'success', duration = 2000) {
+				const container = document.getElementById('toast-container');
+				if (!container) return;
+				const toast = document.createElement('div');
+				toast.className = `toast toast-${type}`;
+				toast.textContent = message;
+				container.appendChild(toast);
+				requestAnimationFrame(() => toast.classList.add('show'));
+				setTimeout(() => toast.classList.remove('show'), duration - 200);
+				setTimeout(() => {
+					if (toast.parentElement) {
+						toast.parentElement.removeChild(toast);
+					}
+				}, duration + 100);
+			}
+
+			if (headerBtn1) {
+				headerBtn1.addEventListener('click', function () {
+					showToast('Tính năng 1 đang phát triển.', 'success');
+				});
+			}
+
+			if (headerBtn2) {
+				headerBtn2.addEventListener('click', function () {
+					showToast('Tính năng 2 đang phát triển.', 'success');
+				});
+			}
+
+			if (userButton && userDropdown) {
+				userButton.addEventListener('click', function (event) {
+					event.stopPropagation();
+					userDropdown.classList.toggle('show');
+				});
+			}
+
+			if (accountInfoBtn) {
+				accountInfoBtn.addEventListener('click', function () {
+					showToast('Thông tin tài khoản chưa hỗ trợ chức năng.', 'success');
+					userDropdown.classList.remove('show');
+				});
+			}
+
+			if (logoutBtn) {
+				logoutBtn.addEventListener('click', function () {
+					localStorage.removeItem('currentUser');
+					userDropdown.classList.remove('show');
+					showToast('Đăng xuất thành công.', 'success', 2000);
+					setTimeout(function () {
+						window.location.href = 'login.html';
+					}, 2000);
+				});
+			}
+
+			const promoImage1 = document.getElementById('promoImage1');
+			const promoImage2 = document.getElementById('promoImage2');
+			const promoImage3 = document.getElementById('promoImage3');
+
+			// Logout Image Menu Event Listeners
+			if (logoutImage && logoutDropdown) {
+				logoutImage.addEventListener('click', function (event) {
+					event.stopPropagation();
+					logoutDropdown.classList.toggle('show');
+				});
+			}
+
+			if (accountInfoImageBtn) {
+				accountInfoImageBtn.addEventListener('click', function () {
+					showToast('Thông tin tài khoản chưa hỗ trợ chức năng.', 'success');
+					logoutDropdown.classList.remove('show');
+				});
+			}
+
+			if (logoutImageBtn) {
+				logoutImageBtn.addEventListener('click', function () {
+					localStorage.removeItem('currentUser');
+					logoutDropdown.classList.remove('show');
+					showToast('Đăng xuất thành công.', 'success', 2000);
+					setTimeout(function () {
+						window.location.href = 'login.html';
+					}, 2000);
+				});
+			}
+
+			if (promoImage1) {
+				promoImage1.addEventListener('click', function () {
+					showToast('Bạn đã nhấn vào ảnh nổi bật 1.', 'success');
+				});
+			}
+
+			if (promoImage2) {
+				promoImage2.addEventListener('click', function () {
+					showToast('Bạn đã nhấn vào ảnh nổi bật 2.', 'success');
+				});
+			}
+
+			if (promoImage3) {
+				promoImage3.addEventListener('click', function () {
+					showToast('Bạn đã nhấn vào ảnh nổi bật 3.', 'success');
+				});
+			}
+
+			document.addEventListener('click', function (event) {
+				if (userDropdown && !userDropdown.contains(event.target) && event.target !== userButton) {
+					userDropdown.classList.remove('show');
+				}
+				if (logoutDropdown && !logoutDropdown.contains(event.target) && event.target !== logoutImage) {
+					logoutDropdown.classList.remove('show');
+				}
+			});
+		});
+	</script>
+	<script src="auth.js"></script>
+</body>
+</html>
